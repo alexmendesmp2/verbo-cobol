@@ -1,0 +1,1 @@
+int CSNDPKB(char *texto, char *texto2, int *n1, int *retcode);
