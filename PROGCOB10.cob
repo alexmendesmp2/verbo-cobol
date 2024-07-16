@@ -20,8 +20,8 @@
        01  AREA-DE-TRANSFERENCIA.
            05  TEXTO-PARA-IMPRIMIR   PIC X(15)       VALUE SPACES.
            05  TEXTO2-PARA-IMPRIMIR  PIC X(15)       VALUE SPACES.
-           05  NUMERO-PARA-IMPRIMIR  PIC 9(02)  COMP VALUE 19.
-           05  NUMERO-PARA-RETORNO   PIC 9(02)  COMP VALUE 20.
+           05  NUMERO-PARA-IMPRIMIR  PIC 9(009)  COMP VALUE 165535.
+           05  NUMERO-PARA-RETORNO   PIC 9(009)  COMP VALUE ZEROS.
        77  CSNDPKB                   PIC X(07)       VALUE 'CSNDPKB'.
       ******************************************************************
        PROCEDURE DIVISION.
@@ -37,6 +37,10 @@
                               NUMERO-PARA-RETORNO
            DISPLAY 'PROGRAMA CHAMADOR'
            DISPLAY 'RETCODE = ' NUMERO-PARA-RETORNO
+      *
+           IF NUMERO-PARA-RETORNO NOT EQUAL 0
+               DISPLAY 'ALGUMA COISA DEU ERRADO!' 
+           END-IF    
            GOBACK.
       *----------------------------------------------------------------*
        END PROGRAM PROGRAMA-COBOL-CHAMADOR.
